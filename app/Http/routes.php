@@ -22,3 +22,13 @@ Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+ * Rest APIs
+ */
+
+Route::group(['prefix' => 'api/v1/'], function() {
+
+    Route::get('getUser', array('uses'=>'Rest\UserRestController@getUser'));
+
+});

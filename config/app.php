@@ -144,6 +144,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Domain Service Providers
+         */
+        App\Providers\SC\Domain\UserDomainServiceProvider::class,
+
+        /*
+         * Rest Service Providers
+         */
+        App\Providers\SC\Rest\UserRestServiceProvider::class
+
     ],
 
     /*
