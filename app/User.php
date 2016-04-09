@@ -39,13 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return $this->hasMany('App\Posts','author_id');
   	}
 
-  	// user has many comments
-  	public function comments()
-  	{
-  		return $this->hasMany('App\Comments','from_user');
-  	}
-
-  	public function can_post()
+  	public function canPost()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'author' || $user_class == 'moderator' || $user_class == 'editor' || $user_class == 'admin' )
@@ -55,17 +49,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return false;
   	}
 
-  	public function can_edit()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'contributor' || $user_class == 'author' || $user_class == 'moderator' || $user_class == 'editor' || $user_class == 'admin' )
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function is_admin()
+  	public function isAdmin()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'admin')
@@ -75,7 +59,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return false;
   	}
 
-  	public function is_editor()
+  	public function isEditor()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'editor')
@@ -85,7 +69,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return false;
   	}
 
-  	public function is_moderator()
+  	public function isModerator()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'moderator')
@@ -95,7 +79,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return false;
   	}
 
-  	public function is_author()
+  	public function isAuthor()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'author')
@@ -105,7 +89,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
   		return false;
   	}
 
-  	public function is_contributor()
+  	public function isContributor()
   	{
   		$user_class = $this->user_class;
   		if($user_class == 'contributor')
