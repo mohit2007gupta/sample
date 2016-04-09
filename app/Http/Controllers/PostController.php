@@ -1,9 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-/* Posts rest is not yet made
-
 use App\Posts;
-*/
 use App\User;
 use App\Http\Controllers\Controller;
 
