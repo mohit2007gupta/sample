@@ -24,13 +24,13 @@
             <%% csrf_field() %%>
             <h2 class="form-signin-heading">Sign Up</h2>
             <label for="inputName" class="sr-only">Name</label>
-            <input type="text" id="inputName" class="form-control" placeholder="Grumpy Bear" required autofocus>
+            <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
             <label for="confirmPassword" class="sr-only">Confirm Password</label>
-            <input type="password" id="confirmPassword" class="form-control" placeholder="Password" required>
+            <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirm" required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me

@@ -10,4 +10,8 @@ class DashboardLinkController extends Controller
     {
         return '';
     }
+    public function index()
+    {
+        return view('dashboard.dashboard');
+    }
 }

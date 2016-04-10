@@ -24,9 +24,6 @@ Route::get('/', function () {
 });
 Route::get('/article', 'Link\ArticleLinkController@index');
 
-Route::get('/', ['as' => 'home', 'uses' => 'PostController@index']);
-
-Route::get('/home', ['as' => 'home', 'uses' => 'PostController@index']);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
@@ -34,6 +31,8 @@ Route::controllers([
 ]);
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/home', ['as' => 'home', 'uses' => 'Link\DashboardLinkController@index']);
     // show new post form
     Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
