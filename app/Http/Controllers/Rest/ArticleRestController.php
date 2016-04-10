@@ -24,7 +24,7 @@ class ArticleRestController extends Controller
     public function getArticle($id)
     {
         $article = $this->articleRestService->getArticle($id);
-        if ($article == null) {
+        if (is_null($article)) {
             return response()->json(SCResponse::getErrorResponse('Article does not exist', []));
         } else {
             return response()->json(SCResponse::getSuccessResponse('Article Found', $article));
@@ -36,7 +36,7 @@ class ArticleRestController extends Controller
         if ($request->has('title') and $request->has('content') and $request->has('contributors')) {
             $article = $this->articleRestService->createArticle($request->input('title'), $request->input('content'), $request->input('contributors'));
 
-            if ($article == null) {
+            if (is_null($article)) {
                 return response()->json(SCResponse::getErrorResponse('Article cannot be created', []));
             } else {
                 return response()->json(SCResponse::getSuccessResponse('Article created', $article));
@@ -48,7 +48,7 @@ class ArticleRestController extends Controller
     public function deleteArticle($id)
     {
         $delete = $this->articleRestService->deleteArticle($id);
-        if ($delete == null) {
+        if (is_null($delete)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised/Invalid id', []));
         }
         return response()->json(SCResponse::getErrorResponse('Successfully Deleted', $delete));
@@ -58,7 +58,7 @@ class ArticleRestController extends Controller
     {
         if ($request->has('title') and $request->has('content') and $request->has('id')) {
             $article = $this->articleRestService->editArticle($request->input('id'), $request->input('title'), $request->input('content'));
-            if ($article == null) {
+            if (is_null($article)) {
                 return response()->json(SCResponse::getErrorResponse('Unauthorised/Invalid id', []));
             }
             return response()->json(SCResponse::getSuccessResponse('Article Edited', $article));

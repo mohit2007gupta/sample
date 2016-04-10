@@ -23,16 +23,25 @@ class UserRestController extends Controller
     public function getCurrentUser()
     {
         $user = $this->userRestService->getCurrentUser();
-        if ($user == null) {
+        if (is_null($user)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Details', $user));
     }
 
+    public function getCurrentUserContributions()
+    {
+        $contributions = $this->userRestService->getCurrentUserContributions();
+        if (is_null($contributions)) {
+            return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
+        }
+        return response()->json(SCResponse::getSuccessResponse('User Contributions', $contributions));
+    }
+
     public function makeAdmin($id)
     {
         $user = $this->userRestService->makeAdmin($id);
-        if ($user == null) {
+        if (is_null($user)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -41,7 +50,7 @@ class UserRestController extends Controller
     public function removeAdmin($id)
     {
         $user = $this->userRestService->removeAdmin($id);
-        if ($user == null) {
+        if (is_null($user)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -50,7 +59,7 @@ class UserRestController extends Controller
     public function makeModerator($id)
     {
         $user = $this->userRestService->makeModerator($id);
-        if ($user == null) {
+        if (is_null($user)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -59,7 +68,7 @@ class UserRestController extends Controller
     public function removeModerator($id)
     {
         $user = $this->userRestService->removeModerator($id);
-        if ($user == null) {
+        if (is_null($user)) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -68,7 +77,7 @@ class UserRestController extends Controller
     public function makeEditor($id)
     {
         $user = $this->userRestService->makeEditor($id);
-        if ($user == null) {
+        if (is_null($user )) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -77,7 +86,7 @@ class UserRestController extends Controller
     public function removeEditor($id)
     {
         $user = $this->userRestService->removeEditor($id);
-        if ($user == null) {
+        if (is_null($user )) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -86,7 +95,7 @@ class UserRestController extends Controller
     public function makeAuthor($id)
     {
         $user = $this->userRestService->makeAuthor($id);
-        if ($user == null) {
+        if (is_null($user )) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
@@ -95,9 +104,26 @@ class UserRestController extends Controller
     public function removeAuthor($id)
     {
         $user = $this->userRestService->removeAuthor($id);
-        if ($user == null) {
+        if (is_null($user )) {
             return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
         }
         return response()->json(SCResponse::getSuccessResponse('User Level Changed', $user));
+    }
+
+    public function getCurrentUserArticles()
+    {
+        $articles = $this->userRestService->getCurrentUserArticles();
+        if (is_null($articles)) {
+            return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
+        }
+        return response()->json(SCResponse::getSuccessResponse('User Articles', $articles));
+    }
+    public function getUserArticles($id)
+    {
+        $articles = $this->userRestService->getUserArticles($id);
+        if (is_null($articles)) {
+            return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
+        }
+        return response()->json(SCResponse::getSuccessResponse('User Articles', $articles));
     }
 }

@@ -12,4 +12,16 @@ interface IUserDomainContract
 
     public function getIdsFromEmails($emailList);
 
+    public function getAdministrators();
+
+    public function getModerators();
+
+    public function getEditors();
+
+    public function getAuthors();
+
+    public function getUserContributions($id);
+    
+    public function getUserArticles($id);
+
 }

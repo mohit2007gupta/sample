@@ -26,4 +26,6 @@ class SCConstants
     const SUCCESS_MESSAGE = 'success';
     const INFO_MESSAGE = 'info';
     const WARNING_MESSAGE = 'warning';
+
+    const PAGINATION_NUMBER = 10;
 }

@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <div class="wrapper">
       <header class="main-header">
-        <a href="index2.html" class="logo">
+        <a href="<% asset('home') %>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>S</b>C</span>
           <!-- logo for regular state and mobile devices -->

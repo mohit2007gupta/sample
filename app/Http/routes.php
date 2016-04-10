@@ -20,7 +20,7 @@ Blade::setContentTags('<%', '%>');        // for variables and all things Blade
 Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 
 Route::get('/', function () {
-    return view('home.home');
+    return view('h');
 });
 Route::get('/article', 'Link\ArticleLinkController@index');
 
@@ -56,7 +56,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['prefix' => 'api/v1/'], function () {
 
-    Route::get('getUser', array('uses' => 'Rest\UserRestController@getUser'));
+    Route::get('getUser/{id}', array('uses' => 'Rest\UserRestController@getUser'));
+
+    Route::get('getCurrentUser', array('uses' => 'Rest\UserRestController@getCurrentUser'));
+
+    Route::get('getCurrentUserContributions', array('uses' => 'Rest\UserRestController@getCurrentUserContributions'));
 
     Route::get('getArticle/{id}', array('uses' => 'Rest\ArticleRestController@getArticle'));
 

@@ -23,4 +23,18 @@ interface IUserRestContract
     public function makeAuthor($id);
 
     public function removeAuthor($id);
+
+    public function getModerators();
+
+    public function getAuthors();
+
+    public function getEditors();
+
+    public function getAdministrators();
+
+    public function getCurrentUserContributions();
+    
+    public function getCurrentUserArticles();
+    
+    public function getUserArticles($id);
 }
