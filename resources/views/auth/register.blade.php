@@ -20,6 +20,13 @@
     <div class="container col-md-4">
         <form class="form-signin" method="post" action="<% asset('auth/register') %>">
             <%% csrf_field() %%>
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li><% $error %></li>
+                    @endforeach
+                </ul>
+            @endif
             <h2 class="form-signin-heading">Sign Up</h2>
             <label for="inputName" class="sr-only">Name</label>
             <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>

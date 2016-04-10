@@ -6,9 +6,9 @@
     @include('layouts._coreCss')
     @yield('pageLevelCss')
     @include('layouts._header')
-
     @include('layouts._coreJs')
     @yield('pageLevelJs')
+
 </head>
 <body ng-app="mainApp" ng-controller="mainController">
 @include('layouts._navbar')

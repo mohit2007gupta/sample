@@ -3,7 +3,8 @@
     <link src="<% asset('static/app/css/auth/main.css') %>" rel="stylesheet">
 @stop
 @section('pageLevelJs')
-    <script type="text/javascript" src="<% asset('static/app/js/auth/main.js') %>"></script>@stop
+    <script type="text/javascript" src="<% asset('static/app/js/auth/main.js') %>"></script>
+@stop
 @section('title')
     Source Cheetah
 @stop
@@ -20,11 +21,18 @@
     <div class="container col-md-4">
         <form class="form-signin" method="post" action="<% asset('auth/login')%>">
             <%% csrf_field() %%>
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li><% $error %></li>
+                    @endforeach
+                </ul>
+            @endif
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
