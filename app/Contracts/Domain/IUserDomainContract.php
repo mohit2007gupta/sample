@@ -4,5 +4,5 @@ namespace App\Contracts\Domain;
 
 interface IUserDomainContract
 {
-    public function getUser();
+    public function getUser($id);
 }

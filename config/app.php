@@ -148,11 +148,13 @@ return [
          * Domain Service Providers
          */
         App\Providers\SC\Domain\UserDomainServiceProvider::class,
+        App\Providers\SC\Domain\ArticleDomainServiceProvider::class,
 
         /*
          * Rest Service Providers
          */
-        App\Providers\SC\Rest\UserRestServiceProvider::class
+        App\Providers\SC\Rest\UserRestServiceProvider::class,
+        App\Providers\SC\Rest\ArticleRestServiceProvider::class
 
     ],
 

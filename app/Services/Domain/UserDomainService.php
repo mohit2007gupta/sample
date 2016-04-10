@@ -6,8 +6,8 @@ use App\Contracts\Domain\IUserDomainContract;
 
 class UserDomainService implements IUserDomainContract
 {
-    public function getUser()
+    public function getUser($id)
     {
-        return 'Test';
+        return 'Test User';
     }
 }

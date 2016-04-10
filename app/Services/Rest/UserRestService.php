@@ -14,8 +14,8 @@ class UserRestService implements IUserRestContract
         $this->userDomainService = $userDomainService;
     }
 
-    public function getUser()
+    public function getUser($id)
     {
-        return $this->userDomainService->getUser();
+        return $this->userDomainService->getUser($id);
     }
 }

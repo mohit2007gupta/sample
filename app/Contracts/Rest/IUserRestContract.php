@@ -4,5 +4,5 @@ namespace App\Contracts\Rest;
 
 interface IUserRestContract
 {
-    public function getUser();
+    public function getUser($id);
 }
