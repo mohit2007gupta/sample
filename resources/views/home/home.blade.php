@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageLevelJs')
-    <script type="text/javascript" src="static/app/js/articles/main.js"></script>@stop
+    <script type="text/javascript" src="<% asset('static/app/js/home/main.js') %>"></script>@stop
 @section('title')
     Source Cheetah
 @stop

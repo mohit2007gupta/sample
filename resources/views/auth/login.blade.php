@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('pageLevelCss')
-    <link src="static/app/css/auth/main.css" rel="stylesheet">
+    <link src="<% asset('static/app/css/auth/main.css') %>" rel="stylesheet">
 @stop
 @section('pageLevelJs')
-    <script type="text/javascript" src="static/app/js/articles/main.js"></script>@stop
+    <script type="text/javascript" src="<% asset('static/app/js/auth/main.js') %>"></script>@stop
 @section('title')
     Source Cheetah
 @stop
