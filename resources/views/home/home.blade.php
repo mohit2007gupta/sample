@@ -6,16 +6,14 @@
     Source Cheetah
 @stop
 @section('pageContent')
-    <div class="container">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">Source Cheetah</a>
-            </ul>
-        </nav>
-    </div>
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-4"></div>
     <div class="container">
         <!-- Example row of columns -->
         <div class="row">
@@ -42,4 +40,6 @@
             <p>&copy; 2015 Company, Inc.</p>
         </footer>
     </div> <!-- /container -->
+    <div class="col-md-4"></div>
+
 @stop

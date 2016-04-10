@@ -9,17 +9,15 @@
 @stop
 
 @section('pageContent')
-    <div class="container">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">Source Cheetah</a>
-            </ul>
-        </nav>
-    </div>
-    <div class="container">
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-4"></div>
+    <div class="container col-md-4">
         <form class="form-signin" method="post" action="<% asset('auth/login')%>">
             <%% csrf_field() %%>
             <h2 class="form-signin-heading">Please sign in</h2>
@@ -35,4 +33,6 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
     </div>
+    <div class="col-md-4"></div>
+
 @stop
