@@ -6,6 +6,5 @@
 @stop
 @section('pageContent')
     <div>
-        {{abc}}
     </div>
 @stop

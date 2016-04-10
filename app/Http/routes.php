@@ -59,4 +59,7 @@ Route::group(['prefix' => 'api/v1/'], function () {
 
     Route::get('getUser', array('uses' => 'Rest\UserRestController@getUser'));
 
+    Route::get('getArticle/{id}', array('uses' => 'Rest\ArticleRestController@getArticle'));
+
+
 });

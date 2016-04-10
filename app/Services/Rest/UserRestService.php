@@ -4,7 +4,7 @@ namespace App\Services\Rest;
 
 use App\Contracts\Domain\IUserDomainContract;
 use App\Contracts\Rest\IUserRestContract;
-use app\Models\Enums\SCConstants;
+use App\Models\Enums\SCConstants;
 use Illuminate\Support\Facades\Auth;
 
 class UserRestService implements IUserRestContract

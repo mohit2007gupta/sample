@@ -48,18 +48,29 @@ class ArticleRestService implements IArticleRestContract
         return null;
     }
 
-    public function edit($id, $title, $content)
+    public function editArticle($id, $title, $content)
+    {
+        $user = Auth::user();
+        if ($user) {
+            $article = $this->articleDomainService->getArticle($id);
+
+            if ($article->author_id == $user->id or $user->level()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
+                return $this->articleDomainService->editArticle($id, $title, $content);
+            }
+        }
+        return null;
+    }
+
+    public function editContributors($id, $contributors)
     {
         $user = Auth::user();
         if ($user) 
         {
             $article = $this->articleDomainService->getArticle($id);
-
-            if ($article->author_id == $user->id or $user->level()->can_edit or !$article->contributors()->where('id', $id)->isEmpty())
+            if ($article->author_id == $user->id or $user->level()->can_edit) 
             {
-                return $this->articleDomainService->editArticle($title, $content);
+                return $this->articleDomainService->editArticle($id, $title, $content);
             }
         }
-        return null;
     }
 }

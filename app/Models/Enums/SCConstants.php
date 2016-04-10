@@ -6,7 +6,7 @@
  * Time: 8:45 PM
  */
 
-namespace app\Models\Enums;
+namespace App\Models\Enums;
 
 
 class SCConstants
@@ -19,4 +19,11 @@ class SCConstants
     const MODERATOR = 3;
     const EDITOR = 4;
     const ADMIN = 5;
+    /*
+     * Error Messages
+     */
+    const ERROR_MESSAGE = 'error';
+    const SUCCESS_MESSAGE = 'success';
+    const INFO_MESSAGE = 'info';
+    const WARNING_MESSAGE = 'warning';
 }

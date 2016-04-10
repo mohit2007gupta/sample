@@ -9,7 +9,7 @@ class ArticleDomainService implements IArticleDomainContract
 {
     public function getArticle($id)
     {
-        return Article::find($id);
+        return Article::where('id',$id)->with('author')->first();
     }
 
     public function createArticle($title, $content, $authorId, $contributors)
@@ -18,16 +18,21 @@ class ArticleDomainService implements IArticleDomainContract
         $article->title = $title;
         $article->content = $content;
         $article->author_id = $authorId;
-//        $article->contributors()->attach($contributors);
         $article->save();
-        return $article->id;
+        $article->contributors()->sync($contributors);
+        $article->save();
+        return $article;
     }
 
     public function deleteArticle($id)
     {
         $article = Article::find($id);
         if ($article != null)
+        {
             $article->delete();
+            return [];
+        }
+        return null;
     }
 
     public function editArticle($id, $title, $content)
@@ -37,9 +42,19 @@ class ArticleDomainService implements IArticleDomainContract
         {
             $article->title = $title;
             $article->content = $content;
-//        $article->contributors()->attach($contributors);
             $article->save();
-            return $article->id;
+            return $article;
+        }
+        return null;
+    }
+    public function editContributors($id, $contributors)
+    {
+        $article = Article::find($id);
+        if ($article != null)
+        {
+            $article->contributors()->sync($contributors);
+            $article->save();
+            return $article;
         }
         return null;
     }
