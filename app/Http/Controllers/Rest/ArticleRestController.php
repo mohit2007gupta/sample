@@ -10,6 +10,18 @@ class ArticleRestController extends Controller
 {
   public function getArticle($id)
   {
-    
+
+  }
+  public function createArticle()
+  {
+
+  }
+  public function deleteArticle()
+  {
+
+  }
+  public function editArticle()
+  {
+
   }
 }

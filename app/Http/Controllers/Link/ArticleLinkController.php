@@ -16,4 +16,12 @@ class ArticleLinkController extends Controller
     {
         return view('articles.article');
     }
+    public function create()
+    {
+        return view('articles.create');
+    }
+    public function article($id)
+    {
+        return view('articles.article');
+    }
 }

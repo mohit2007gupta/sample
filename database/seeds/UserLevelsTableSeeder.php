@@ -12,7 +12,7 @@ class UserLevelsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('user_levels')->insert([
             'name' => 'regular',
             'can_publish' => false,
             'can_add_remove_contributors' => false,
@@ -24,7 +24,7 @@ class UserLevelsTableSeeder extends Seeder
             'can_grant_revoke_editor_privilege' => false,
             'can_grant_revoke_moderator_privilege' => false,
         ]);
-        DB::table('users')->insert([
+        DB::table('user_levels')->insert([
             'name' => 'author',
             'can_publish' => true,
             'can_add_remove_contributors' => false,
@@ -36,7 +36,7 @@ class UserLevelsTableSeeder extends Seeder
             'can_grant_revoke_editor_privilege' => false,
             'can_grant_revoke_moderator_privilege' => false,
         ]);
-        DB::table('users')->insert([
+        DB::table('user_levels')->insert([
             'name' => 'moderator',
             'can_publish' => true,
             'can_add_remove_contributors' => true,
@@ -48,7 +48,7 @@ class UserLevelsTableSeeder extends Seeder
             'can_grant_revoke_editor_privilege' => false,
             'can_grant_revoke_moderator_privilege' => false,
         ]);
-        DB::table('users')->insert([
+        DB::table('user_levels')->insert([
             'name' => 'editor',
             'can_publish' => true,
             'can_add_remove_contributors' => true,
@@ -60,7 +60,7 @@ class UserLevelsTableSeeder extends Seeder
             'can_grant_revoke_editor_privilege' => false,
             'can_grant_revoke_moderator_privilege' => false,
         ]);
-        DB::table('users')->insert([
+        DB::table('user_levels')->insert([
             'name' => 'admin',
             'can_publish' => true,
             'can_add_remove_contributors' => true,
