@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <!--    @yield('scriptHeader')-->
+    @yield('scriptHeader')
     <title>@yield('title')</title>
     @include('layouts._coreCss')
     @yield('pageLevelCss')

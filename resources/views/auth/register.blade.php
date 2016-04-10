@@ -20,7 +20,7 @@
         </nav>
     </div>
     <div class="container">
-        <form class="form-signin">
+        <form class="form-signin" method="post" action="<% asset('auth/register') %>">
             <h2 class="form-signin-heading">Sign Up</h2>
             <label for="inputName" class="sr-only">Name</label>
             <input type="text" id="inputName" class="form-control" placeholder="Grumpy Bear" required autofocus>
