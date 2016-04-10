@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Posts;
-use App\User;
+use App\Models\Post;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class PostController extends Controller
     /*
     Should return posts for index page by some ordering
     */
-    $posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5);
+    $posts = Post::where('active','1')->orderBy('created_at','desc')->paginate(5);
 		$title = 'Latest Posts';
 		return view('home')->withPosts($posts)->withTitle($title);
   }
@@ -29,7 +29,7 @@ class PostController extends Controller
     */
     if($request->user()->canPost())
     {
-      return view('createPost')
+      return view('createPost');
     }
   }
 
@@ -40,7 +40,7 @@ class PostController extends Controller
 	 */
 	public function store(PostFormRequest $request)
 	{
-		$post = new Posts();
+		$post = new Post();
 		$post->title = $request->get('title');
 		$post->body = $request->get('body');
 		$post->slug = str_slug($post->title);
@@ -67,7 +67,7 @@ class PostController extends Controller
 	 */
 	public function show($slug)
 	{
-		$post = Posts::where('slug',$slug)->first();
+		$post = Post::where('slug',$slug)->first();
 
 		if($post)
 		{
@@ -90,7 +90,7 @@ class PostController extends Controller
 	 */
 	public function edit(Request $request,$slug)
 	{
-		$post = Posts::where('slug',$slug)->first();
+		$post = Post::where('slug',$slug)->first();
 		if($post && ($request->user()->id == $post->author_id || $request->user()->is_admin()))
 			return view('posts.edit')->with('post',$post);
 		else
@@ -109,12 +109,12 @@ class PostController extends Controller
 	{
 		//
 		$post_id = $request->input('post_id');
-		$post = Posts::find($post_id);
+		$post = Post::find($post_id);
 		if($post && ($post->author_id == $request->user()->id || $request->user()->is_admin()))
 		{
 			$title = $request->input('title');
 			$slug = str_slug($title);
-			$duplicate = Posts::where('slug',$slug)->first();
+			$duplicate = Post::where('slug',$slug)->first();
 			if($duplicate)
 			{
 				if($duplicate->id != $post_id)
@@ -159,7 +159,7 @@ class PostController extends Controller
 	public function destroy(Request $request, $id)
 	{
 		//
-		$post = Posts::find($id);
+		$post = Post::find($id);
 		if($post && ($post->author_id == $request->user()->id || $request->user()->is_admin()))
 		{
 			$post->delete();
