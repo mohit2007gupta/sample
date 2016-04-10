@@ -10,7 +10,8 @@
     @yield('pageLevelJs')
 
 </head>
-<body ng-app="mainApp" ng-controller="mainController">
+<body ng-app="mainApp" ng-controller="mainController"  class="hold-transition skin-yellow sidebar-mini">
+
 @include('layouts._navbar')
 @yield('pageContent')
 @include('layouts._footer')
