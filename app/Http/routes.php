@@ -24,6 +24,8 @@ Route::get('/', function () {
 });
 Route::get('/article', 'Link\ArticleLinkController@index');
 
+Route::get('/article/create', 'Link\ArticleLinkController@create');
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

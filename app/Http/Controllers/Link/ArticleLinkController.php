@@ -14,14 +14,14 @@ class ArticleLinkController extends Controller
 {
     public function index()
     {
-        return view('articles.article');
+        return view('article.article');
     }
     public function create()
     {
-        return view('articles.create');
+        return view('article.create');
     }
     public function article($id)
     {
-        return view('articles.article');
+        return view('article.article');
     }
 }
