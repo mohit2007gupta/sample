@@ -30,7 +30,7 @@ class ArticleDomainService implements IArticleDomainContract
             $article->delete();
     }
 
-    public function editArticle($id, $title, $content, $contributors)
+    public function editArticle($id, $title, $content)
     {
         $article = Article::find($id);
         if ($article != null)
@@ -42,5 +42,10 @@ class ArticleDomainService implements IArticleDomainContract
             return $article->id;
         }
         return null;
+    }
+
+    public function isContributor($id, $userId)
+    {
+        return Article::find($id)->contributors()->where('id', $userId);
     }
 }

@@ -42,5 +42,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->belongsToMany('App\Models\Article','article_contributor', 'article_id', 'contributor_id')->withTimestamps();
 	}
+    public function level()
+    {
+        return $this->belongsTo('App\Models\UserLevel','level');
+    }
 
 }

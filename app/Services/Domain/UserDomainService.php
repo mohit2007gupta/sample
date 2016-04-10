@@ -11,11 +11,20 @@ class UserDomainService implements IUserDomainContract
     {
         return User::find($id);
     }
+
     public function changeLevel($userId, $newLevelId)
     {
         $user = User::find($userId);
         $user->level = $newLevelId;
         $user->save();
         return $user;
+    }
+
+    public function getIdsFromEmails($emailList)
+    {
+        if (count($emailList) > 0)
+            return User::whereIn('email', $emailList)->lists('id')->all();
+        else
+            return [];
     }
 }

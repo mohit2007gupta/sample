@@ -10,5 +10,7 @@ interface IArticleDomainContract
 
     public function deleteArticle($id);
 
-    public function editArticle($id, $title, $content, $contributors);
+    public function editArticle($id, $title, $content);
+    
+    public function isContributor($id, $userId);
 }
