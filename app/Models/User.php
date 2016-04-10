@@ -33,70 +33,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
-    // user has many posts
-  	public function posts()
+    // User has many articles
+  	public function articles()
   	{
-  		return $this->hasMany('App\Posts','author_id');
-  	}
-
-  	public function canPost()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'author' || $user_class == 'moderator' || $user_class == 'editor' || $user_class == 'admin' )
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function isAdmin()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'admin')
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function isEditor()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'editor')
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function isModerator()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'moderator')
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function isAuthor()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'author')
-  		{
-  			return true;
-  		}
-  		return false;
-  	}
-
-  	public function isContributor()
-  	{
-  		$user_class = $this->user_class;
-  		if($user_class == 'contributor')
-  		{
-  			return true;
-  		}
-  		return false;
+  		return $this->hasMany('App\Models\Article','author_id');
   	}
 
 }
