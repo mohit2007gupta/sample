@@ -1,0 +1,1 @@
+<script type="text/javascript" src="static/vendors/angular/angular.min.js"></script>

@@ -22,6 +22,7 @@ Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/article', 'Link\ArticleLinkController@index');
 
 Route::get('/', ['as' => 'home', 'uses' => 'PostController@index']);
 
