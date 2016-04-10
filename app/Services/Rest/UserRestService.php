@@ -16,6 +16,16 @@ class UserRestService implements IUserRestContract
         $this->userDomainService = $userDomainService;
     }
 
+    public function getCurrentUser()
+    {
+        $user = Auth::user();
+        if ($user)
+        {
+            return $this->userDomainService->getUserWithLevels($user->id);
+        }
+        return null;
+    }
+
     public function getUser($id)
     {
         return $this->userDomainService->getUser($id);

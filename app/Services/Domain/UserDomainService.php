@@ -11,6 +11,10 @@ class UserDomainService implements IUserDomainContract
     {
         return User::find($id);
     }
+    public function getUserWithLevels($id)
+    {
+        return User::where('id',$id)->with('levels')->first();
+    }
 
     public function changeLevel($userId, $newLevelId)
     {

@@ -35,10 +35,10 @@ Route::controllers([
 
 Route::group(['middleware' => ['auth']], function () {
     // show new post form
-    Route::get('new-post', 'PostController@create');
+    Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
     // save new post
-    Route::post('new-post', 'PostController@store');
+    Route::get('new-post', 'Link\DashboardLinkController@index');
 
     // edit post form
     Route::get('edit/{slug}', 'PostController@edit');
