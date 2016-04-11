@@ -93,6 +93,22 @@
         <!-- Main content -->
         <section class="content">
 
+
+            <div class="col-md-4" >
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h2 class="text-center" > Title </h2>
+                    </div><!-- /.box-header -->
+                    <div class="box-body"  style="font-size:120%; min-height:150px">
+                        Content Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes Here
+                    </div><!-- /.box-body -->
+                    <div class="box-footer text-center">
+                        <a href="javascript::" class="uppercase">View All Users</a>
+                    </div><!-- /.box-footer -->
+                </div>
+            </div>
+
+
             <!-- Your Page Content Here -->
 
         </section><!-- /.content -->
