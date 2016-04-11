@@ -17,6 +17,14 @@ var elementapp = angular.module('mainApp', [])
             console.log('asd');
             $scope.model.contributors.push('');
         };
+        $scope.inContributors = function (email) {
+            for (var i = 0; i<$scope.model.contributors.length; i++) {
+                if ($scope.model.contributors[i].email == email) {
+                    return true;
+                }
+            }
+            return false;
+        };
 
         $scope.createArticle = function () {
             if ($scope.model.title != '' && $scope.model.content != '')

@@ -105,8 +105,8 @@
                     <h1 class="blog-post-title">{{model.title}}</h1>
                     <p class="blog-post-meta">{{model.updated_at}} by <a href="<% asset('user') %>{{'/'+model.author.id}}">{{model.author.name}}</a></p>
                 </div>
-                <div ng-if="user.level.can_edit || user.email in model.contributors">
-                    <a class="btn btn-default" href="<% asset('article/delete/') %>{{model.id}}">Edit</a>
+                <div ng-if="user.level.can_edit || inContributors(user.email)">
+                    <a class="btn btn-default" href="<% asset('article/edit') %>{{'/'+model.id}}">Edit</a>
                 </div>
                 <br>
                 <div class="row">

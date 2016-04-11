@@ -10,7 +10,7 @@ class ArticleDomainService implements IArticleDomainContract
 {
     public function getArticle($id)
     {
-        return Article::where('id',$id)->with('author')->first();
+        return Article::where('id',$id)->with('author')->with('contributors')->first();
     }
 
     public function getAllArticles()

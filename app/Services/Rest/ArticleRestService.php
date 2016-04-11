@@ -60,8 +60,14 @@ class ArticleRestService implements IArticleRestContract
         if ($user) {
             $article = $this->articleDomainService->getArticle($id);
 
-            if ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
+            if ($article->author_id == $user->id or $user->level()->first()->can_edit) {
                 return $this->articleDomainService->editArticle($id, $title, $content);
+            }
+            foreach ($article->contributors as $contributor) {
+                if ($contributor->id == $user->id) {
+                    return view('article.edit')->with('articleId', $id);
+                }
+
             }
         }
         return null;

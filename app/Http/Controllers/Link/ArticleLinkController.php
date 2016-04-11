@@ -39,8 +39,14 @@ class ArticleLinkController extends Controller
         if ($user) {
             $article = $this->articleRestService->getArticle($id);
 
-            if ($article and ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty())) {
+            if ($article and ($article->author_id == $user->id or $user->level()->first()->can_edit)) {
                 return view('article.edit')->with('articleId', $id);
+            }
+            foreach ($article->contributors as $contributor) {
+                if ($contributor->id == $user->id) {
+                    return view('article.edit')->with('articleId', $id);
+                }
+
             }
         }
         return Redirect::to(URL::previous());
