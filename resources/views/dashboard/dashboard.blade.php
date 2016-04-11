@@ -97,7 +97,7 @@
             <div class="col-md-4" >
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h2 class="text-center" > Title </h2>
+                        <h3 class="text-center" > Title </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body"  style="font-size:120%; min-height:150px">
                         Content Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes HereContent Goes Here

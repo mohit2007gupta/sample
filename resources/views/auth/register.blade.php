@@ -14,18 +14,10 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<% asset('auth/login')%>" >
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{user.name}}</span>
+                            <span class="hidden-xs">Sign In</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- Menu Footer-->
-                            <li>
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-
-                            </li>
-                        </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
 

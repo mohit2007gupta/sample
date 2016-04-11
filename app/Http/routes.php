@@ -68,5 +68,7 @@ Route::group(['prefix' => 'api/v1/'], function () {
 
     Route::post('editArticle', array('uses' => 'Rest\ArticleRestController@editArticle'));
 
+    Route::get('makeAdmin/{id}', 'Rest\UserRestController@makeAdmin');
+
 
 });

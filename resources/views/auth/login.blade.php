@@ -14,9 +14,9 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<% asset('auth/register')%>" >
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{user.name}}</span>
+                            <span class="hidden-xs">Sign Up</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- Menu Footer-->

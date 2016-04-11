@@ -21,6 +21,12 @@ var elementapp = angular.module('mainApp', [])
             console.log(data.data)
             $scope.articles = data.data;
         });
+
+        $scope.makeAdmin = function(){
+            user.makeAdmin($scope.model.id).then(function (data) {
+                console.log(data);
+            })
+        };
         // $scope.getCurrentUser();
     }])
     .factory('user', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
@@ -50,6 +56,17 @@ var elementapp = angular.module('mainApp', [])
             getUserArticles: function (id) {
                 var deferred = $q.defer();
                 var urlToUse = baseUrl + "api/v1/getUserArticles/"+id;
+                console.log(urlToUse);
+                $http.get(urlToUse).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            },
+            makeAdmin: function (id) {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/makeAdmin/"+id;
                 console.log(urlToUse);
                 $http.get(urlToUse).success(function (data) {
                     deferred.resolve(data);
