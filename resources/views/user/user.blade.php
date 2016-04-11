@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="clearfix"></div>
-                <div class="col-md-12"><h3>Publications</h3></div>
+                <div ng-if="articles.length" class="col-md-12"><h3>Publications</h3></div>
             </section>
 
             <section class="content">
