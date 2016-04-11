@@ -19,7 +19,6 @@
             <span class="logo-lg"><b>Source</b>Cheetah</span>
         </a>
         <nav class="navbar navbar-inverse navbar-static-top">
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
@@ -33,17 +32,14 @@
                             <li>
                                 <a href="<% asset('user/{{user.id}}') %>" class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
-
                             </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-
                 </ul>
             </div>
         </nav>
     </header>
-
     <aside class="main-sidebar">
 
         <!-- sidebar: style can be found in sidebar.less -->
@@ -63,7 +59,7 @@
 
                 <li class="header">Quick Actions</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li>
+                <li class="active">
                     <a href="<% asset('home') %>">
                         <i class="fa fa-link"></i>
                         <span>Home</span>
@@ -75,13 +71,8 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li ng-if="user.level.can_publish">
-                    <a href="<% asset('user/{{user.id}}') %>">
-                        <i class="fa fa-link"></i>
-                        <span>My Articles</span>
-                    </a>
-                </li>
-                <li ng-if="user.contributions">
+
+                <li ng-if="user.contributions.length != 0">
                     <a href="#">
                         <i class="fa fa-link"></i>
                         <span>My Contributions</span>
@@ -97,7 +88,6 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -128,7 +118,7 @@
                 </div>
             </div>
             <div class="col-md-4"></div>
-
+            <
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 

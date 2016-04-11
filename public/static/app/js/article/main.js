@@ -1,8 +1,18 @@
 var elementapp = angular.module('mainApp', [])
-    .controller('mainController', ["$scope","article", function ($scope, article) {
+    .controller('mainController', ["$scope","article","user", function ($scope, article, user) {
         $scope.model = {};
         $scope.model.contributors = [];
-        
+
+        user.getCurrentUser().then(function(data){
+            $scope.user = data.data;
+            // $scope.user.level.name = $scope.capitalizeFirstLetter($scope.user.level.name);
+            console.log(data.data);
+            user.getCurrentUserContributions().then(function(data){
+                $scope.user.contributions = data.data;
+                console.log(data.data);
+            });
+        });
+
         $scope.addContributor = function () {
             console.log('asd');
             $scope.model.contributors.push('');
@@ -78,4 +88,32 @@ var elementapp = angular.module('mainApp', [])
                 return deferred.promise;
             }
         }
+    }])
+
+    .factory('user', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
+        return {
+            getCurrentUser: function () {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/getCurrentUser";
+                console.log(urlToUse);
+                $http.get(urlToUse).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            },
+            getCurrentUserContributions: function () {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/getCurrentUserContributions";
+                console.log(urlToUse);
+                $http.get(urlToUse).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            }
+        }
     }]);
+
