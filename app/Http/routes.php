@@ -70,5 +70,18 @@ Route::group(['prefix' => 'api/v1/'], function () {
 
     Route::get('makeAdmin/{id}', 'Rest\UserRestController@makeAdmin');
 
+    Route::get('makeEditor/{id}', 'Rest\UserRestController@makeEditor');
+
+    Route::get('makeModerator/{id}', 'Rest\UserRestController@makeModerator');
+
+    Route::get('makeAuthor/{id}', 'Rest\UserRestController@makeAuthor');
+
+    Route::get('removeAdmin/{id}', 'Rest\UserRestController@removeAdmin');
+
+    Route::get('removeEditor/{id}', 'Rest\UserRestController@removeEditor');
+
+    Route::get('removeModerator/{id}', 'Rest\UserRestController@removeModerator');
+
+    Route::get('removeAuthor/{id}', 'Rest\UserRestController@removeAuthor');
 
 });

@@ -97,10 +97,10 @@
                 </div>
                 <div>{{model.email}}</div>
                 <div ng-if="user.level.id >= model.level.id">
-                    <div ng-if="user.level.can_grant_revoke_admin_privilege"><span><button class="btn btn-primary" ng-if="model.level.id != 5" ng-click="makeAdmin()">Make Admin</button> <button class="btn btn-danger" ng-if="model.level.id == 5">Revoke Admin</button></span></div>
-                    <div ng-if="user.level.can_grant_revoke_editor_privilege"><button class="btn btn-primary" ng-if="model.level.id != 4">Make Editor</button> <button class="btn btn-danger" ng-if="model.level.id == 4">Revoke Editor</button></div>
-                    <div ng-if="user.level.can_grant_revoke_moderator_privilege"><button class="btn btn-primary" ng-if="model.level.id != 3">Make Moderator</button> <button class="btn btn-danger" ng-if="model.level.id == 3">Revoke Moderator</button></div>
-                    <div ng-if="user.level.can_grant_revoke_author_privilege"><button class="btn btn-primary" ng-if="model.level.id != 2">Make Author</button> <button class="btn btn-danger" ng-if="model.level.id == 2">Revoke Author</button></div>
+                    <div ng-if="user.level.can_grant_revoke_admin_privilege"><span><button class="btn btn-primary" ng-if="model.level.id != 5" ng-click="makeAdmin()">Make Admin</button> <button class="btn btn-danger" ng-if="model.level.id == 5" ng-click="removeAdmin()">Revoke Admin</button></span></div>
+                    <div ng-if="user.level.can_grant_revoke_editor_privilege"><button class="btn btn-primary" ng-if="model.level.id != 4" ng-click="makeEditor()">Make Editor</button> <button class="btn btn-danger" ng-if="model.level.id == 4" ng-click="removeEditor()">Revoke Editor</button></div>
+                    <div ng-if="user.level.can_grant_revoke_moderator_privilege"><button class="btn btn-primary" ng-if="model.level.id != 3" ng-click="makeModerator()">Make Moderator</button> <button class="btn btn-danger" ng-if="model.level.id == 3" ng-click="removeModerator()">Revoke Moderator</button></div>
+                    <div ng-if="user.level.can_grant_revoke_author_privilege"><button class="btn btn-primary" ng-if="model.level.id != 2" ng-click="makeAuthor()">Make Author</button> <button class="btn btn-danger" ng-if="model.level.id == 2" ng-click="removeAuthor()">Revoke Author</button></div>
                 </div>
 
             </section>
