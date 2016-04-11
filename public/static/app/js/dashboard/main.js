@@ -81,7 +81,7 @@ var elementapp = angular.module('mainApp',[])
         return {
             getAllArticles: function () {
                 var deferred = $q.defer();
-                var urlToUse = baseUrl + "api/v1/getAllArticles/";
+                var urlToUse = baseUrl + "api/v1/getAllArticles";
                 console.log(urlToUse);
                 $http.get(urlToUse).success(function (data) {
                     deferred.resolve(data);
