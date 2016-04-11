@@ -24,6 +24,21 @@ class ArticleLinkController extends Controller
         else
             return redirect('home');
     }
+
+    public function edit($id)
+    {
+        $user = Auth::user();
+        if ($user) {
+            $article = $this->articleDomainService->getArticle($id);
+
+            if ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
+                return view('article.edit');
+            }
+        }
+        else
+            return Redirect::to(URL::previous());
+
+    }
     public function article($id)
     {
         return view('article.article');
