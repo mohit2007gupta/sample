@@ -1,4 +1,14 @@
 @extends('layouts.master')
+@section('pageLevelJs')
+
+    <script src="<% asset('static/app/js/dashboard/app.min.js') %>"></script>
+
+    <script src="<% asset('static/app/js/article/main.js') %>"></script>
+    <script>
+        var articleId = <% $articleId %>;
+    </script>
+@stop
+@section('pageContent')
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
@@ -48,13 +58,13 @@
             <div class="col-md-4"></div>
             <div class="container col-md-4">
                 <div class="blog-header">
-                    <h1 class="blog-post-title">The Bootstrap Blog</h1>
-                    <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+                    <h1 class="blog-post-title">{{model.title}}</h1>
+                    <p class="blog-post-meta">{{model.updated_at}} by <a href="<% asset('user') %>{{'/'+model.author.id}}">{{model.author.name}}</a></p>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 blog-main">
                         <div class="blog-post">
-                            <p>Blog goes here</p>
+                            <p>{{model.content}}</p>
                         </div>
                     </div>
                 </div>
@@ -69,3 +79,4 @@
 
 
 </div>
+@stop

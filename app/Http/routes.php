@@ -19,10 +19,7 @@
 Blade::setContentTags('<%', '%>');        // for variables and all things Blade
 Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 
-Route::get('/article', 'Link\ArticleLinkController@index');
-
-Route::get('/article/create', 'Link\ArticleLinkController@create');
-
+Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
@@ -33,20 +30,16 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', ['as' => 'home', 'uses' => 'Link\DashboardLinkController@index']);
     // show new post form
-    Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
     Route::get('article/create','Link\ArticleLinkController@create');
     // save new post
     Route::get('new-post', 'Link\DashboardLinkController@index');
 
     // edit post form
-    Route::get('edit/{slug}', 'PostController@edit');
-
-    // update post
-    Route::post('update', 'PostController@update');
+    Route::get('article/edit/{id}', 'Link\ArticleLinkController@edit');
 
     // delete post
-    Route::get('delete/{id}', 'PostController@destroy');
+    Route::get('article/delete/{id}', 'Link\ArticleLinkController@delete');
 
 });
 

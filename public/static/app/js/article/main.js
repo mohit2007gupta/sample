@@ -11,11 +11,21 @@ var elementapp = angular.module('mainApp', [])
             {
                 article.createArticle($scope.model).then(function (data) {
                         if (data.status == true) {
-                            window.location = baseUrl + 'articles/'+data.data.id;
+                            window.location = baseUrl + 'article/'+data.data.id;
                         }
                 });
             }
         };
+        $scope.getArticle = function (id) {
+                article.getArticle(id).then(function (data) {
+                    if (data.status == true) {
+                        $scope.model = data.data;
+                    }
+                });
+        };
+        if (articleId){
+            $scope.getArticle(articleId);
+        }
     }])
     .factory('article', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
         return {
@@ -30,9 +40,9 @@ var elementapp = angular.module('mainApp', [])
                 });
                 return deferred.promise;
             },
-            getCurrentUserArticles: function () {
+            getArticle: function (id) {
                 var deferred = $q.defer();
-                var urlToUse = baseUrl + "api/v1/getCurrentUserArticles";
+                var urlToUse = baseUrl + "api/v1/getArticle/"+ id;
                 console.log(urlToUse);
                 $http.get(urlToUse).success(function (data) {
                     deferred.resolve(data);
