@@ -34,6 +34,7 @@ class ArticleRestController extends Controller
     public function createArticle(Request $request)
     {
         if ($request->has('title') and $request->has('content') and $request->has('contributors')) {
+//            return 's';
             $article = $this->articleRestService->createArticle($request->input('title'), $request->input('content'), $request->input('contributors'));
 
             if (is_null($article)) {

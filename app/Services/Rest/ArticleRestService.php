@@ -28,7 +28,7 @@ class ArticleRestService implements IArticleRestContract
         if ($user) {
             $article = $this->articleDomainService->getArticle($id);
             if ($article) {
-                if ($article->author_id == $user->id or $user->level()->can_unpublish) {
+                if ($article->author_id == $user->id or $user->level()->first()->can_unpublish) {
                     return $this->articleDomainService->deleteArticle($id);
                 }
             }
@@ -38,9 +38,11 @@ class ArticleRestService implements IArticleRestContract
 
     public function createArticle($title, $content, $contributors)
     {
+
         $user = Auth::user();
         if ($user) {
-            if ($user->level()->can_publish) {
+            if ($user->level()->first()->can_publish) {
+
                 $contributors = $this->userDomainService->getIdsFromEmails($contributors);
                 return $this->articleDomainService->createArticle($title, $content, $user->id, $contributors);
             }
@@ -54,7 +56,7 @@ class ArticleRestService implements IArticleRestContract
         if ($user) {
             $article = $this->articleDomainService->getArticle($id);
 
-            if ($article->author_id == $user->id or $user->level()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
+            if ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
                 return $this->articleDomainService->editArticle($id, $title, $content);
             }
         }
@@ -67,7 +69,7 @@ class ArticleRestService implements IArticleRestContract
         if ($user) 
         {
             $article = $this->articleDomainService->getArticle($id);
-            if ($article->author_id == $user->id or $user->level()->can_edit) 
+            if ($article->author_id == $user->id or $user->level()->first()->can_edit) 
             {
                 return $this->articleDomainService->editArticle($id, $title, $content);
             }
