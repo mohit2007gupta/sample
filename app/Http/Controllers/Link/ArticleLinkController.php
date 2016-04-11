@@ -52,6 +52,19 @@ class ArticleLinkController extends Controller
         return Redirect::to(URL::previous());
 
     }
+    public function deleteArticle($id)
+    {
+        $user = Auth::user();
+        if ($user) {
+            $article = $this->articleRestService->getArticle($id);
+
+            if ($article and ($article->author_id == $user->id or $user->level()->first()->can_edit)) {
+                $this->articleRestService->deleteArticle($id);
+            }
+        }
+        return Redirect::to(URL::previous());
+
+    }
     public function article($id)
     {
         return view('article.article')->with('articleId', $id);

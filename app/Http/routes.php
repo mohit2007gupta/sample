@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('article/edit/{id}', 'Link\ArticleLinkController@edit');
 
     // delete post
-    Route::get('article/delete/{id}', 'Link\ArticleLinkController@delete');
+    Route::get('article/delete/{id}', 'Link\ArticleLinkController@deleteArticle');
 
 });
 
