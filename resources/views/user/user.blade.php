@@ -19,7 +19,6 @@
                 <span class="logo-lg"><b>Source</b>Cheetah</span>
             </a>
             <nav class="navbar navbar-inverse navbar-static-top">
-
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
@@ -33,12 +32,10 @@
                                 <li>
                                     <a href="<% asset('user/{{user.id}}') %>" class="btn btn-default btn-flat">Profile</a>
                                     <a href="#" class="btn btn-default btn-flat">Sign out</a>
-
                                 </li>
                             </ul>
                         </li>
                         <!-- Control Sidebar Toggle Button -->
-
                     </ul>
                 </div>
             </nav>
@@ -72,12 +69,6 @@
                         <a href="<% asset('user/{{user.id}}') %>">
                             <i class="fa fa-link"></i>
                             <span>Profile</span>
-                        </a>
-                    </li>
-                    <li ng-if="user.level.can_publish">
-                        <a href="<% asset('user/{{user.id}}') %>">
-                            <i class="fa fa-link"></i>
-                            <span>My Articles</span>
                         </a>
                     </li>
                     <li ng-if="user.contributions">

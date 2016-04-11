@@ -70,7 +70,7 @@
                     </a>
                 </li>
 
-                <li ng-if="user.contributions">
+                <li ng-if="user.contributions.length != 0">
                     <a href="#">
                         <i class="fa fa-link"></i>
                         <span>My Contributions</span>
