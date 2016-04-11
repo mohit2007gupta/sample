@@ -19,9 +19,6 @@
 Blade::setContentTags('<%', '%>');        // for variables and all things Blade
 Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 
-Route::get('/', function () {
-    return view('h');
-});
 Route::get('/article', 'Link\ArticleLinkController@index');
 
 Route::get('/article/create', 'Link\ArticleLinkController@create');
@@ -50,6 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
     // delete post
     Route::get('delete/{id}', 'PostController@destroy');
 
+});
+
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/','Link\GuestLinkController@index');
 });
 
 /*
