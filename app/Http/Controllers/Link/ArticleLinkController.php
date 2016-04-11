@@ -41,6 +41,10 @@ class ArticleLinkController extends Controller
     }
     public function article($id)
     {
-        return view('article.article');
+        return view('article.article')->with('articleId', $id);
+    }
+    public function edit($id)
+    {
+        return view('article.edit')->with('articleId', $id);
     }
 }
