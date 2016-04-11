@@ -62,22 +62,35 @@
 
                     <li class="header">Quick Actions</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Profile</span></a></li>
-                    <li ng-if="user.level.can_publish"><a href="#"><i class="fa fa-link"></i>
-                            <span>My Articles</span></a></li>
-                    <li ng-if="user.contributions"><a href="#"><i class="fa fa-link"></i> <span>My Contributions</span></a>
+                    <li class="active">
+                        <a href="<% asset('home') %>">
+                            <i class="fa fa-link"></i>
+                            <span>Home</span>
+                        </a>
                     </li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Statistics</span></a></li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i
-                                    class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Link in level 2</a></li>
-                            <li><a href="#">Link in level 2</a></li>
-                        </ul>
+                    <li>
+                        <a href="<% asset('user/{{user.id}}') %>">
+                            <i class="fa fa-link"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li ng-if="user.level.can_publish">
+                        <a href="<% asset('user/{{user.id}}') %>">
+                            <i class="fa fa-link"></i>
+                            <span>My Articles</span>
+                        </a>
+                    </li>
+                    <li ng-if="user.contributions">
+                        <a href="#">
+                            <i class="fa fa-link"></i>
+                            <span>My Contributions</span>
+                        </a>
+                    </li>
+                    <li ng-if="user.level.can_publish">
+                        <a href="<% asset('article/create')%>">
+                            <i class="fa fa-link"></i>
+                            <span>Create new Article</span>
+                        </a>
                     </li>
                 </ul><!-- /.sidebar-menu -->
             </section>
