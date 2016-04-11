@@ -75,12 +75,7 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li ng-if="user.level.can_publish">
-                    <a href="<% asset('user/{{user.id}}') %>">
-                        <i class="fa fa-link"></i>
-                        <span>My Articles</span>
-                    </a>
-                </li>
+
                 <li ng-if="user.contributions">
                     <a href="#">
                         <i class="fa fa-link"></i>
