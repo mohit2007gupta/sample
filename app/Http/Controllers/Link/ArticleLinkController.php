@@ -9,6 +9,7 @@
 namespace app\Http\Controllers\Link;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleLinkController extends Controller
 {
@@ -18,7 +19,10 @@ class ArticleLinkController extends Controller
     }
     public function create()
     {
-        return view('article.create');
+        if (Auth::user()->level()->first()->can_publish)
+            return view('article.create');
+        else
+            return redirect('home');
     }
     public function article($id)
     {

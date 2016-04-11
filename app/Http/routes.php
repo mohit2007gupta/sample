@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     // show new post form
     Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
+    Route::get('article/create','Link\ArticleLinkController@create');
     // save new post
     Route::get('new-post', 'Link\DashboardLinkController@index');
 
