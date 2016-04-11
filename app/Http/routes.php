@@ -66,5 +66,7 @@ Route::group(['prefix' => 'api/v1/'], function () {
 
     Route::get('getArticle/{id}', array('uses' => 'Rest\ArticleRestController@getArticle'));
 
+    Route::post('createArticle', array('uses' => 'Rest\ArticleRestController@createArticle'));
+
 
 });

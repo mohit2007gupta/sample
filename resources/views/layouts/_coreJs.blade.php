@@ -8,7 +8,3 @@
 <script src="<% asset('static/vendors/bootstrap/dist/js/bootstrap.min.js') %>"></script>
 <!-- AdminLTE App -->
 <script src="<% asset('static/vendors/angular/angular.min.js') %>"></script>
-
-<script src="<% asset('static/app/js/dashboard/app.min.js') %>"></script>
-
-<script src="<% asset('static/app/js/dashboard/main.js') %>"></script>

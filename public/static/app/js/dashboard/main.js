@@ -6,8 +6,14 @@ var elementapp = angular.module('mainApp',[])
         $scope.abc = "jell";
         user.getCurrentUser().then(function(data){
             $scope.user = data.data;
+            $scope.user.level.name = $scope.capitalizeFirstLetter($scope.user.level.name);
             console.log(data.data);
-        })
+            user.getCurrentUserContributions().then(function(data){
+                $scope.user.contributions = data.data;
+                console.log(data.data);
+            });
+        });
+
     }])
     .factory('user', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
         return {
@@ -25,6 +31,17 @@ var elementapp = angular.module('mainApp',[])
             getCurrentUserArticles: function () {
                 var deferred = $q.defer();
                 var urlToUse = baseUrl + "api/v1/getCurrentUserArticles";
+                console.log(urlToUse);
+                $http.get(urlToUse).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            },
+            getCurrentUserContributions: function () {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/getCurrentUserContributions";
                 console.log(urlToUse);
                 $http.get(urlToUse).success(function (data) {
                     deferred.resolve(data);

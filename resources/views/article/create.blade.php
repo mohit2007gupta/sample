@@ -1,4 +1,12 @@
 @extends('layouts.master')
+@section('pageLevelJs')
+
+    <script src="<% asset('static/app/js/dashboard/app.min.js') %>"></script>
+
+    <script src="<% asset('static/app/js/article/main.js') %>"></script>
+
+@stop
+@section('pageContent')
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
@@ -80,19 +88,21 @@
         <!-- Main content -->
         <section class="content">
 
-            <input class="form-control" type="text" name="title"  placeholder="Title" required autofocus>
+            <input class="form-control" ng-model="model.title" type="text" name="title"  placeholder="Title" required autofocus>
 
             <br>
 
-            <textarea class="form-control" style="height: 300px;" name="content" placeholder="Content "></textarea>
+            <textarea class="form-control" ng-model="model.content" style="height: 300px;" name="content" placeholder="Content "></textarea>
 
             <br>
+            <div ng-repeat="cont in model.contributors track by $index">
+                <input type="text" class="form-control" ng-model="model.contributors[$index]">
+            </div>
+            <button class="btn" ng-click="addContributor()">Add Contributors</button>
 
-            <button class="btn"><i class=" icon-plus">Add Contributors</i></button>
+            <div style="height: 18px;"></div>
 
-            <br>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="createArticle()">Create</button>
 
             <br>
             <!-- Your Page Content Here -->
@@ -102,7 +112,5 @@
     </div><!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-
-
-
 </div>
+@stop

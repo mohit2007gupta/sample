@@ -57,7 +57,9 @@ class UserDomainService implements IUserDomainContract
 
     public function getUserContributions($id)
     {
-        return User::where('id', $id)->with('contributedArticles.author')->first()['contributedArticles']->orderBy('created_at', 'desc')->paginate(SCConstants::PAGINATION_NUMBER);
+        return User::where('id', $id)->with(['contributedArticles' => function ($query) {
+            $query->orderBy('created_at', 'desc')->paginate(SCConstants::PAGINATION_NUMBER);
+        }])->first()->contributedArticles;
     }
 
     public function getUserArticles($id)

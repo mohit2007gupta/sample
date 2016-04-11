@@ -1,4 +1,12 @@
 @extends('layouts.master')
+@section('pageLevelJs')
+
+    <script src="<% asset('static/app/js/dashboard/app.min.js') %>"></script>
+
+    <script src="<% asset('static/app/js/dashboard/main.js') %>"></script>
+
+@stop
+@section('pageContent')
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
@@ -49,9 +57,15 @@
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
+
                 <li class="header">Quick Actions</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+                <li ng-if="user.level.can_publish"><a href="#"><i class="fa fa-link"></i> <span>My Articles</span></a></li>
+                <li ng-if="user.contributions"><a href="#"><i class="fa fa-link"></i> <span>My Contributions</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>Statistics</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
                 <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i
@@ -72,7 +86,7 @@
         <section class="content-header">
             <h1>
                 Dashboard
-                <small>{{capitalizeFirstLetter(user.level.name)}}</small>
+                <small>{{user.level.name}}</small>
             </h1>
         </section>
 
@@ -87,5 +101,5 @@
     <!-- Main Footer -->
 
 
-
 </div>
+@stop
