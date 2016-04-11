@@ -86,9 +86,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
             <!-- Content Header (Page header) -->
-            <section class="content-header col-md-4 text-center">
+            <section class="content-header col-md-6 text-center">
                 <h1>
                     {{model.name}}
                 </h1>
@@ -96,26 +96,19 @@
                     {{model.level.name}}
                 </div>
                 <div>{{model.email}}</div>
+                <br>
                 <div ng-if="user.level.id >= model.level.id">
-                    <div ng-if="user.level.can_grant_revoke_admin_privilege"><span><button class="btn btn-primary" ng-if="model.level.id != 5" ng-click="makeAdmin()">Make Admin</button> <button class="btn btn-danger" ng-if="model.level.id == 5" ng-click="removeAdmin()">Revoke Admin</button></span></div>
-                    <div ng-if="user.level.can_grant_revoke_editor_privilege"><button class="btn btn-primary" ng-if="model.level.id != 4" ng-click="makeEditor()">Make Editor</button> <button class="btn btn-danger" ng-if="model.level.id == 4" ng-click="removeEditor()">Revoke Editor</button></div>
-                    <div ng-if="user.level.can_grant_revoke_moderator_privilege"><button class="btn btn-primary" ng-if="model.level.id != 3" ng-click="makeModerator()">Make Moderator</button> <button class="btn btn-danger" ng-if="model.level.id == 3" ng-click="removeModerator()">Revoke Moderator</button></div>
-                    <div ng-if="user.level.can_grant_revoke_author_privilege"><button class="btn btn-primary" ng-if="model.level.id != 2" ng-click="makeAuthor()">Make Author</button> <button class="btn btn-danger" ng-if="model.level.id == 2" ng-click="removeAuthor()">Revoke Author</button></div>
+                    <div style="display: inline; float: center" ng-if="user.level.can_grant_revoke_admin_privilege"><span><button class="btn btn-primary" ng-if="model.level.id != 5" ng-click="makeAdmin()">Make Admin</button> <button class="btn btn-danger" ng-if="model.level.id == 5" ng-click="removeAdmin()">Revoke Admin</button></span></div>
+                    <div style="display: inline; float: center" ng-if="user.level.can_grant_revoke_editor_privilege"><button class="btn btn-primary" ng-if="model.level.id != 4" ng-click="makeEditor()">Make Editor</button> <button class="btn btn-danger" ng-if="model.level.id == 4" ng-click="removeEditor()">Revoke Editor</button></div>
+                    <div style="display: inline; float: center" ng-if="user.level.can_grant_revoke_moderator_privilege"><button class="btn btn-primary" ng-if="model.level.id != 3" ng-click="makeModerator()">Make Moderator</button> <button class="btn btn-danger" ng-if="model.level.id == 3" ng-click="removeModerator()">Revoke Moderator</button></div>
+                    <div style="display: inline; float: center" ng-if="user.level.can_grant_revoke_author_privilege"><button class="btn btn-primary" ng-if="model.level.id != 2" ng-click="makeAuthor()">Make Author</button> <button class="btn btn-danger" ng-if="model.level.id == 2" ng-click="removeAuthor()">Revoke Author</button></div>
                 </div>
-
+                <div class="col-md-3"></div>
+                <div class="clearfix"></div>
+                <div class="col-md-12"><h3>Publications</h3></div>
             </section>
-            <div>
 
-            </div>
-
-            <!-- Main content -->
-            <section class="content col-md-4">
-
-                <!-- Your Page Content Here -->
-
-            </section><!-- /.content -->
             <section class="content">
-
                 <div class="row">
                     <div class="col-md-4" ng-repeat="article in articles">
                         <div class="box box-danger">
