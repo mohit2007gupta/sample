@@ -17,7 +17,6 @@
             <span class="logo-lg"><b>Source</b>Cheetah</span>
         </a>
         <nav class="navbar navbar-inverse navbar-static-top">
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
@@ -35,8 +34,6 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- Control Sidebar Toggle Button -->
-
                 </ul>
             </div>
         </nav>

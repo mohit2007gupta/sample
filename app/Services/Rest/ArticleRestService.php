@@ -22,6 +22,10 @@ class ArticleRestService implements IArticleRestContract
         return $this->articleDomainService->getArticle($id);
     }
     
+    public function getAllArticles()
+    {
+        return $this->articleDomainService->getAllArticles();
+    }
     public function deleteArticle($id)
     {
         $user = Auth::user();

@@ -6,6 +6,8 @@ interface IArticleDomainContract
 {
     public function getArticle($id);
 
+    public function getAllArticles();
+    
     public function createArticle($title, $content, $authorId, $contributors);
 
     public function deleteArticle($id);

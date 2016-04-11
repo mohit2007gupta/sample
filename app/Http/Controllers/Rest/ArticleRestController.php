@@ -31,6 +31,16 @@ class ArticleRestController extends Controller
         }
     }
 
+    public function getAllArticles()
+    {
+        $articles = $this->articleRestService->getAllArticles();
+        if (is_null($articles)) {
+            return response()->json(SCResponse::getErrorResponse('Article does not exist', []));
+        } else {
+            return response()->json(SCResponse::getSuccessResponse('Article Found', $articles));
+        }
+    }
+
     public function createArticle(Request $request)
     {
         if ($request->has('title') and $request->has('content') and $request->has('contributors')) {

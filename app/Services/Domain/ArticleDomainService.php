@@ -4,12 +4,18 @@ namespace App\Services\Domain;
 
 use App\Contracts\Domain\IArticleDomainContract;
 use App\Models\Article;
+use App\Models\Enums\SCConstants;
 
 class ArticleDomainService implements IArticleDomainContract
 {
     public function getArticle($id)
     {
         return Article::where('id',$id)->with('author')->first();
+    }
+
+    public function getAllArticles()
+    {
+        return Article::orderBy('created_at', 'desc')->paginate(SCConstants::PAGINATION_NUMBER)->all();
     }
 
     public function createArticle($title, $content, $authorId, $contributors)

@@ -6,6 +6,8 @@ interface IArticleRestContract
 {
     public function getArticle($id);
 
+    public function getAllArticles();
+    
     public function deleteArticle($id);
 
     public function createArticle($title, $content, $contributors);

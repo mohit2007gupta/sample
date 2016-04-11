@@ -1,5 +1,5 @@
 var elementapp = angular.module('mainApp',[])
-    .controller('mainController',["$scope","user",function($scope, user) {
+    .controller('mainController',["$scope","user","article",function($scope, user, article) {
         $scope.capitalizeFirstLetter = function (string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         };
@@ -14,7 +14,21 @@ var elementapp = angular.module('mainApp',[])
             });
         });
 
+        $scope.getAllArticles = function () {
+            article.getAllArticles().then(function (data) {
+                if (data.status == true) {
+                    $scope.articles = data.data;
+                    console.log(data)
+                }
+                else {
+                    window.location = baseUrl + 'home'
+                }
+            });
+        };
+        $scope.getAllArticles();
+
     }])
+
     .factory('user', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
         return {
             getCurrentUser: function () {
@@ -53,6 +67,21 @@ var elementapp = angular.module('mainApp',[])
             getUserArticles: function ($id) {
                 var deferred = $q.defer();
                 var urlToUse = baseUrl + "api/v1/getUserArticles/"+id;
+                console.log(urlToUse);
+                $http.get(urlToUse).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            }
+        }
+    }])
+    .factory('article', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
+        return {
+            getAllArticles: function () {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/getAllArticles/";
                 console.log(urlToUse);
                 $http.get(urlToUse).success(function (data) {
                     deferred.resolve(data);

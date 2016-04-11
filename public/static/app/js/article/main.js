@@ -2,10 +2,12 @@ var elementapp = angular.module('mainApp', [])
     .controller('mainController', ["$scope","article", function ($scope, article) {
         $scope.model = {};
         $scope.model.contributors = [];
+        
         $scope.addContributor = function () {
             console.log('asd');
             $scope.model.contributors.push('');
         };
+
         $scope.createArticle = function () {
             if ($scope.model.title != '' && $scope.model.content != '')
             {
