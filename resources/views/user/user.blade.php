@@ -127,6 +127,7 @@
                         <div class="box box-danger">
                             <div class="box-header with-border">
                                 <h2 class="text-center"> {{article.title}} </h2>
+                                <h5 class="text-center"> {{ article.created_at }}</h5>
                             </div><!-- /.box-header -->
                             <div class="box-body" style="font-size:120%; min-height:150px">
                                 {{article.content}}

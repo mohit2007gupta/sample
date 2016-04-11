@@ -98,7 +98,6 @@
         <!-- /.sidebar -->
     </aside>
 
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -124,7 +123,7 @@
                 </div>
             </div>
             <div class="col-md-4"></div>
-
+            <
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 

@@ -12,6 +12,8 @@ var elementapp = angular.module('mainApp',[])
                 }
             });
         };
+        $scope.getAllArticles();
+
     }])
     .factory('article', ["$location", "$http", "$log", "$q", function ($location, $http, $log, $q) {
         return {
