@@ -21,7 +21,7 @@ class ArticleRestService implements IArticleRestContract
     {
         return $this->articleDomainService->getArticle($id);
     }
-
+    
     public function deleteArticle($id)
     {
         $user = Auth::user();

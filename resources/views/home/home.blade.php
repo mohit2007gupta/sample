@@ -2,33 +2,28 @@
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
-        <a href="<% asset('home') %>" class="logo">
+        <a href="<% asset('/') %>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>C</span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Source</b>Cheetah</span>
         </a>
         <nav class="navbar navbar-inverse navbar-static-top">
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<% asset('auth/register')%>" >
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{user.name}}</span>
+                            <span class="hidden-xs">Sign Up</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- Menu Footer-->
-                            <li>
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
 
-                            </li>
-                        </ul>
                     </li>
-                    <!-- Control Sidebar Toggle Button -->
-
+                    <li class="dropdown user user-menu">
+                        <a href="<% asset('auth/login')%>" >
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">Sign In</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

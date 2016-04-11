@@ -12,7 +12,7 @@
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
-        <a href="<% asset('home') %>" class="logo">
+        <a href="<% asset('/') %>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>C</span>
             <!-- logo for regular state and mobile devices -->
@@ -31,7 +31,7 @@
                         <ul class="dropdown-menu">
                             <!-- Menu Footer-->
                             <li>
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<% asset('user/{{user.id}}') %>" class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
 
                             </li>
@@ -43,6 +43,60 @@
             </div>
         </nav>
     </header>
+
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div style="min-height:40px" class="pull-left image"></div>
+                <div class="pull-left info">
+                    <p>{{user.name}}</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+
+                <li class="header">Quick Actions</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li>
+                    <a href="<% asset('home') %>">
+                        <i class="fa fa-link"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<% asset('user/{{user.id}}') %>">
+                        <i class="fa fa-link"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li ng-if="user.level.can_publish">
+                    <a href="<% asset('user/{{user.id}}') %>">
+                        <i class="fa fa-link"></i>
+                        <span>My Articles</span>
+                    </a>
+                </li>
+                <li ng-if="user.contributions">
+                    <a href="#">
+                        <i class="fa fa-link"></i>
+                        <span>My Contributions</span>
+                    </a>
+                </li>
+                <li ng-if="user.level.can_publish">
+                    <a href="<% asset('article/create')%>">
+                        <i class="fa fa-link"></i>
+                        <span>Create new Article</span>
+                    </a>
+                </li>
+            </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
 
 
     <!-- Content Wrapper. Contains page content -->

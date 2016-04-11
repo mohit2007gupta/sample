@@ -12,7 +12,7 @@
     <div class="wrapper">
         <!-- Left side column. contains the logo and sidebar -->
         <header class="main-header">
-            <a href="<% asset('home') %>" class="logo">
+            <a href="<% asset('/') %>" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>S</b>C</span>
                 <!-- logo for regular state and mobile devices -->
@@ -31,7 +31,7 @@
                             <ul class="dropdown-menu">
                                 <!-- Menu Footer-->
                                 <li>
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<% asset('user/{{user.id}}') %>" class="btn btn-default btn-flat">Profile</a>
                                     <a href="#" class="btn btn-default btn-flat">Sign out</a>
 
                                 </li>
@@ -62,13 +62,13 @@
 
                     <li class="header">Quick Actions</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active">
+                    <li>
                         <a href="<% asset('home') %>">
                             <i class="fa fa-link"></i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<% asset('user/{{user.id}}') %>">
                             <i class="fa fa-link"></i>
                             <span>Profile</span>

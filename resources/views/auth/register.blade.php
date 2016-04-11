@@ -2,7 +2,7 @@
 <div class="wrapper">
     <!-- Left side column. contains the logo and sidebar -->
     <header class="main-header">
-        <a href="<% asset('home') %>" class="logo">
+        <a href="<% asset('/') %>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>C</span>
             <!-- logo for regular state and mobile devices -->
@@ -19,7 +19,6 @@
                             <span class="hidden-xs">Sign In</span>
                         </a>
                     </li>
-                    <!-- Control Sidebar Toggle Button -->
 
                 </ul>
             </div>
