@@ -16,14 +16,27 @@ var elementapp = angular.module('mainApp', [])
                 });
             }
         };
+        $scope.editArticle = function () {
+            if ($scope.model.title != '' && $scope.model.content != '')
+            {
+                article.editArticle($scope.model).then(function (data) {
+                    if (data.status == true) {
+                        window.location = baseUrl + 'article/'+data.data.id;
+                    }
+                });
+            }
+        };
         $scope.getArticle = function (id) {
                 article.getArticle(id).then(function (data) {
                     if (data.status == true) {
                         $scope.model = data.data;
                     }
+                    else {
+                        window.location = baseUrl + 'home';
+                    }
                 });
         };
-        if (articleId){
+        if (typeof articleId !== 'undefined'){
             $scope.getArticle(articleId);
         }
     }])
@@ -32,6 +45,17 @@ var elementapp = angular.module('mainApp', [])
             createArticle: function (article) {
                 var deferred = $q.defer();
                 var urlToUse = baseUrl + "api/v1/createArticle";
+                console.log(urlToUse);
+                $http.post(urlToUse, article).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            },
+            editArticle: function (article) {
+                var deferred = $q.defer();
+                var urlToUse = baseUrl + "api/v1/editArticle";
                 console.log(urlToUse);
                 $http.post(urlToUse, article).success(function (data) {
                     deferred.resolve(data);

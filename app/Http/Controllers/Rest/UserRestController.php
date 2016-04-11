@@ -17,8 +17,11 @@ class UserRestController extends Controller
 
     public function getUser($id)
     {
-        return $this->userRestService->getUser($id);
-    }
+        $user = $this->userRestService->getUser($id);
+        if (is_null($user)) {
+            return response()->json(SCResponse::getErrorResponse('Unauthorised', []));
+        }
+        return response()->json(SCResponse::getSuccessResponse('User Details', $user));    }
 
     public function getCurrentUser()
     {

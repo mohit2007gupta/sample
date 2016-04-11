@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('pageLevelJs')
-
+    <script>
+        var articleId = <% $articleId %>;
+    </script>
     <script src="<% asset('static/app/js/dashboard/app.min.js') %>"></script>
 
     <script src="<% asset('static/app/js/article/main.js') %>"></script>
@@ -95,14 +97,10 @@
             <textarea class="form-control" ng-model="model.content" style="height: 300px;" name="content" placeholder="Content "></textarea>
 
             <br>
-            <div ng-repeat="cont in model.contributors track by $index">
-                <input type="text" class="form-control" ng-model="model.contributors[$index]">
-            </div>
-            <button class="btn" ng-click="addContributor()">Add Contributors</button>
 
             <div style="height: 18px;"></div>
 
-            <button class="btn btn-lg btn-primary btn-block" ng-click="createArticle()">Create</button>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="editArticle()">Edit</button>
 
             <br>
             <!-- Your Page Content Here -->

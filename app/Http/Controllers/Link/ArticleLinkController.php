@@ -8,11 +8,19 @@
 
 namespace app\Http\Controllers\Link;
 
+use App\Contracts\Rest\IArticleRestContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class ArticleLinkController extends Controller
 {
+    public function __construct(IArticleRestContract $articleRestService)
+    {
+        $this->articleRestService = $articleRestService;
+    }
+
     public function index()
     {
         return view('article.article');
@@ -29,22 +37,17 @@ class ArticleLinkController extends Controller
     {
         $user = Auth::user();
         if ($user) {
-            $article = $this->articleDomainService->getArticle($id);
+            $article = $this->articleRestService->getArticle($id);
 
-            if ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty()) {
-                return view('article.edit');
+            if ($article and ($article->author_id == $user->id or $user->level()->first()->can_edit or !$article->contributors()->where('id', $id)->isEmpty())) {
+                return view('article.edit')->with('articleId', $id);
             }
         }
-        else
-            return Redirect::to(URL::previous());
+        return Redirect::to(URL::previous());
 
     }
     public function article($id)
     {
         return view('article.article')->with('articleId', $id);
-    }
-    public function edit($id)
-    {
-        return view('article.edit')->with('articleId', $id);
     }
 }

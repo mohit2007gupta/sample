@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: anand
- * Date: 4/10/16
- * Time: 8:45 PM
- */
 
 namespace App\Models\Enums;
-
 
 class SCConstants
 {
@@ -27,5 +20,5 @@ class SCConstants
     const INFO_MESSAGE = 'info';
     const WARNING_MESSAGE = 'warning';
 
-    const PAGINATION_NUMBER = 10;
+    const PAGINATION_NUMBER = 9;
 }

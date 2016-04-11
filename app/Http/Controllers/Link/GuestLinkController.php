@@ -6,7 +6,7 @@
  * Time: 4:56 PM
  */
 
-namespace app\Http\Controllers\Link;
+namespace App\Http\Controllers\Link;
 
 use App\Http\Controllers\Controller;
 

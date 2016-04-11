@@ -27,7 +27,7 @@ class UserRestService implements IUserRestContract
 
     public function getUser($id)
     {
-        return $this->userDomainService->getUser($id);
+        return $this->userDomainService->getUserWithLevels($id);
     }
 
     public function makeAdmin($id)
@@ -158,6 +158,6 @@ class UserRestService implements IUserRestContract
 
     public function getUserArticles($id)
     {
-        return $this->userDomainService->getUserContributions($id);
+        return $this->userDomainService->getUserArticles($id);
     }
 }

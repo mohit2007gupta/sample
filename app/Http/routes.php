@@ -19,7 +19,6 @@
 Blade::setContentTags('<%', '%>');        // for variables and all things Blade
 Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 
-Route::get('article/{id}', 'Link\ArticleLinkController@article');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
@@ -32,8 +31,6 @@ Route::group(['middleware' => ['auth']], function () {
     // show new post form
 
     Route::get('article/create','Link\ArticleLinkController@create');
-    // save new post
-    Route::get('new-post', 'Link\DashboardLinkController@index');
 
     // edit post form
     Route::get('article/edit/{id}', 'Link\ArticleLinkController@edit');
@@ -46,6 +43,10 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/','Link\GuestLinkController@index');
 });
+Route::get('article/{id}', 'Link\ArticleLinkController@article');
+
+Route::get('user/{id}', 'Link\UserLinkController@user');
+
 
 /*
  * Rest APIs
@@ -59,9 +60,13 @@ Route::group(['prefix' => 'api/v1/'], function () {
 
     Route::get('getCurrentUserContributions', array('uses' => 'Rest\UserRestController@getCurrentUserContributions'));
 
+    Route::get('getUserArticles/{id}', array('uses' => 'Rest\UserRestController@getUserArticles'));
+
     Route::get('getArticle/{id}', array('uses' => 'Rest\ArticleRestController@getArticle'));
 
     Route::post('createArticle', array('uses' => 'Rest\ArticleRestController@createArticle'));
+
+    Route::post('editArticle', array('uses' => 'Rest\ArticleRestController@editArticle'));
 
 
 });
