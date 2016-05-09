@@ -25,28 +25,9 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::group(['middleware' => ['auth']], function () {
-
-    Route::get('/home', ['as' => 'home', 'uses' => 'Link\DashboardLinkController@index']);
-    // show new post form
-
-    Route::get('article/create','Link\ArticleLinkController@create');
-
-    // edit post form
-    Route::get('article/edit/{id}', 'Link\ArticleLinkController@edit');
-
-    // delete post
-    Route::get('article/delete/{id}', 'Link\ArticleLinkController@deleteArticle');
-
+Route::get('/', function() {
+    return 'Hello, it\'s me!';
 });
-
-Route::group(['middleware' => ['guest']], function () {
-    Route::get('/','Link\GuestLinkController@index');
-});
-Route::get('article/{id}', 'Link\ArticleLinkController@article');
-
-Route::get('user/{id}', 'Link\UserLinkController@user');
-
 
 /*
  * Rest APIs
